@@ -1,0 +1,27 @@
+1. Building the Max Heap
+The Build-Max-Heap procedure ensures the array satisfies the max heap property.
+A max heap is a binary tree where each parent node is greater than or equal to its children.
+
+_The algorithm iterates over all non-leaf nodes (nodes at indices ⌊n/2⌋ down to 1).
+_For each node, Max-Heapify is called, which takes O(logn) time because it may need to traverse from the node down to the bottom of the heap.
+
+2. Extracting Maximum (Sorting)
+
+After building the max heap:
+_Swap the root (maximum element) with the last element of the heap.
+_Reduce the heap size by 1.
+_Call Max-Heapify on the root to restore the max heap property.
+
+This process is repeated for each of the n−1 elements in the heap.
+_Swapping takes O(1).
+_Max-Heapify is called n−1 times, and each call takes O(logn).
+
+Total Time for Sorting:
+_Tsort=(n−1)⋅O(logn)=O(nlogn)
+
+Overall Time Complexity
+
+Combining the two phases:
+_Building the Max Heap: O(n)
+_Sorting: O(nlogn)
+Overall Time Complexity: O(n)+O(nlogn)=O(nlogn)

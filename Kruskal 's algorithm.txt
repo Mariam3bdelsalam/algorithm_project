@@ -1,0 +1,13 @@
+Input: A graph G = (V, E), where (V) is the set of vertices and (E) is the set of edges, and (W), the weights of edges.
+
+Output: A set (A) representing the edges of the Minimum Spanning Tree (MST).
+
+ A = {}  // Initialize an empty set to store edges of MST
+ For each vertex v in G.V :
+       Make-Set(v)  // Create a separate set for each vertex
+Sort the edges in ascending order of their weights w .
+For each edge(u, v) :
+       If Find-Set(u) ≠ Find-Set(v):  // Check if u and v are in different sets
+            A = A ∪ {(u, v)}         // Add edge (u, v) to the MST
+            Union(u, v)              // Merge the sets of u and v
+Return A  // The set of edges forming the MST

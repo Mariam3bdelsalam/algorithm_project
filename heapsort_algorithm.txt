@@ -1,0 +1,30 @@
+Heap-Sort(A):
+ Build-Max-Heap(A)                // Step 1: Build the max heap
+  for i = A.length down to 2:      // Step 2: Sort the array
+       swap(A[1], A[i])             // Move the largest element to the end
+       heap_size = heap_size - 1    // Reduce the heap size
+       Max-Heapify(A, 1)            // Restore max heap property
+  Return A                         // The array is now sorted
+
+Build-Max-Heap(A):
+   heap_size = A.length             // Initialize heap size
+   for i = floor(A.length / 2) down to 1:
+       Max-Heapify(A, i)            // Restore max heap property for all subtrees
+
+Max-Heapify(A, i):
+   l = Left(i)                      // Index of left child
+   r = Right(i)                     // Index of right child
+   largest = i                      // Assume current node is largest
+   if l ≤ heap_size and A[l] > A[i]:
+       largest = l                  // Left child is larger
+   if r ≤ heap_size and A[r] > A[largest]:
+       largest = r                  // Right child is larger
+   if largest ≠ i:
+       swap(A[i], A[largest])       // Swap to maintain max heap property
+       Max-Heapify(A, largest)      // Recursively restore heap
+
+Left(i):
+   Return 2 * i                     // Index of left child
+
+Right(i):
+   Return 2 * i + 1                 // Index of right child
